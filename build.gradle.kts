@@ -1,17 +1,13 @@
-task("clean", type = Delete::class) {
-    delete(buildDir)
-}
-
 subprojects {
     group = "dev.rikka.tools.autoresconfig"
-    version = "1.2.1"
+    version = "1.2.3+fork"
 
     plugins.withId("java") {
         println("- Configuring `java`")
 
         extensions.configure<JavaPluginExtension> {
-            sourceCompatibility = JavaVersion.VERSION_11
-            targetCompatibility = JavaVersion.VERSION_11
+            sourceCompatibility = JavaVersion.VERSION_21
+            targetCompatibility = JavaVersion.VERSION_21
         }
         tasks.register("sourcesJar", type = Jar::class) {
             archiveClassifier.set("sources")
